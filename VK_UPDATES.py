@@ -6,6 +6,7 @@ import sys
 sys.path.append('..')
 from time import sleep
 import re
+import Settings
 
 
 """
@@ -14,10 +15,8 @@ import re
     - нет обработки отредактированных постов. Думаю, стоит брать в работу только закрепленные(offset=0) и смотреть по pinned=1 и наличию edited 
 """
 
-vk_token = '5f4523a95f4523a95f4523a98f5f343e1e55f455f4523a901d287cd356d46868a4bc53a'
 Mint_id = '-127965281' 
 Dubrovka_id = '-7959989' 
-# user_id = '-143663305' #test group
 
 
 
@@ -227,42 +226,6 @@ def get_anonse(group_id):
 def main():
     get_anonse(Dubrovka_id)
     get_anonse(Mint_id)
-
-
-    # r = requests.get('https://api.vk.com/method/wall.get', params={'owner_id': user_id, 'v': 5.199, 'count': 1, 'offset': 0, 'access_token': vk_token})
-    # print(r.json())
-
-    # #   post_object = vk_data.get('object', {})
-    # if r.json()['response']['items'][0].get('is_pinned') == 1:
-    #     print('Обнаружен закрепленный пост, сохраняем как анонс')
-    #     dubrovka_anonse = get_post('-7959989', 0)
-    #     print(dubrovka_anonse)
-    # else:
-    #    print('Закрепленный пост не найден')
-    
-    
-    # try:
-    #     mint_anonse = get_post(-127965281, 0)
-    #     print('Mint anonse')
-    #     print(mint_anonse)
-
-
-
-    # dubrovka_last_post = get_post(-7959989, 1)
-    # dubrovka_anonse = get_post(-7959989, 0)
- 
-    
-    # attachments = r.json()['response']['items'][0]['attachments']
-    
-    # # Подсчитываем количество каждого типа вложений
-    # attachment_types = {}
-    # for attachment in attachments:
-    #     att_type = attachment.get('type')
-    #     attachment_types[att_type] = attachment_types.get(att_type, 0) + 1
-    
-    # print("Количество вложений по типам:", attachment_types)
-    # post_text = r.json()['response']['items'][0]['text']
-    # print(post_text)
 
 
 if __name__ == '__main__':
