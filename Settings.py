@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 tg_token = os.getenv('tg_token')
+vk_token = os.getenv('vk_token')
 
 
 Mint_accept = '5fd56570'
