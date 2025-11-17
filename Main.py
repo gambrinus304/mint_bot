@@ -1,27 +1,29 @@
 from flask import Flask
 from flask import request
 from flask import jsonify
-import requests
-import json
 from flask_sslify import SSLify
-import re
-import sqlite3
-import random
 from sqlite3 import Error
 from datetime import datetime
+import sqlite3
+import requests
+import json
+import re
 import os
+import csv
+import random
 
 import Settings
 import Mint_calendar
-import csv
 
 
 
 # ночные сообщения лучше сделать silent
 
 app = Flask(__name__)
-# sslify = SSLify(app)
+sslify = SSLify(app)
 
+token = Settings.tg_token
+URL = 'https://api.telegram.org/bot7726642478:'+ token
 
 text = ', привет! Добро пожаловать в бот Дубровки!'
 menu_button = '🔙 Меню'
